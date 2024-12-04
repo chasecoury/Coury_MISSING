@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white; /* Set the entire background to white */
+    color: black; /* Set the text color to black */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 2.5vh;
+    min-height: 100vh;
+    padding: 20px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1s ease-in; /* Smooth transition for fade in */
+}
+
+.container {
+    max-width: 690px;
+    width: 100%;
+}
+
+
+.title-container {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center the title */
+    width: 100%; /* Full width for the title container */
+    margin-bottom: 40px; /* Space below the title */
+}
+
+.title {
+    margin-top: -15px;
+    font-size: 21vh;
+    font-weight: bold;
+    white-space: nowrap;
+    letter-spacing: -0.04em;
+    visibility: hidden; /* Hide titles initially */
+}
+
+
+
+#poem-lost,
+#poem-surrender,
+#poem-meaning {
+    margin-bottom: 150px;
+}
+
+.line {
+    margin: 5px 0; /* Margin between lines */
+    cursor: move; /* Show move cursor when hovering over lines */
+    transition: transform 0.3s ease; /* Add transition for smooth movement */
+}
+
+.line:hover {
+    color: rgb(177, 0, 0); /* Change text color on hover */
+}
+
+.line.dragging {
+
+    color: rgb(0, 0, 0); /* Change color of the dragged line */
+}
+
+
+/* Fade in effect for the body */
+body.fade-in {
+    opacity: 1; /* Fade to fully visible */
+    transition: opacity 1s ease-in; /* Smooth transition for fade in */
+}
+
+.question-marks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.question-mark {
+    font-size: 10vw;
+    color: rgba(0, 0, 0, 0.1);
+    animation: fadeRandom 5s infinite;
+}
+
+@keyframes fadeRandom {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.cursor-trail {
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: moveRandomly 5s infinite ease-in-out;
+    z-index: 9999;
+}
+
+@keyframes moveRandomly {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, -10px);
+    }
+}
+
+.question-mark {
+    font-size: 20em;
+    font-weight: bold;
+    margin-top: 0px;
+    color: #000000;
+}
+
+.flying-question-mark {
+    position: absolute;
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.284);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Initially hide the quote container */
+.quote-container {
+    text-align: center; /* Center the text */
+    margin-top: -80px; /* Space above the quote */
+    padding: 0 20px; /* Add some padding */
+    margin-bottom: 80px; /* Space above the quote */
+    opacity: 0;
+    transition: opacity 1s ease-in; /* Smooth fade-in effect */
+}
+
+/* Add this class when the quote should be visible */
+.quote-visible {
+    opacity: 1;
+}
+
+
+.quote-text {
+    font-size: 0.9em; /* Adjust font size as needed */
+    color: black; /* Text color */
+    font-style: italic; /* Italicize the quote */
+    line-height: 1.5; /* Improve line height for readability */
+}
+
+.links-container {
+    display: flex;
+    justify-content: center; /* Center the links horizontally */
+    margin-top: -20px; /* Space above the links */
+    margin-bottom: 20px;
+}
+
+.link {
+    margin: 0 180px; /* Increase space between links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    color: black; /* Default link color */
+    font-size: 0.8em; /* Adjust font size as needed */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.link:hover {
+    color: rgb(0, 72, 255); /* Change color on hover */
+}
+
+

@@ -1,0 +1,61 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+    user-select: none; /* Disable text selection */
+    transition: background-color 1s ease; /* Add transition for fading */
+}
+
+#word-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    transition: opacity 1s ease; /* Add transition for fading the text */
+}
+
+.letter {
+    position: absolute;
+    color: grey;
+    font-size: 20vh;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.5s ease;
+    cursor: default;
+}
+
+.letter.visible {
+    color: black;
+}
+
+.letter.word-clickable {
+    cursor: pointer;
+}
+
+.letter.word-clickable:hover {
+    color: #cd0000;
+}
+
+.centered {
+    transition: transform 1s ease;
+}
+
+.cursor-trail {
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    pointer-events: none; /* Makes the question marks unselectable */
+    animation: moveRandomly 5s infinite ease-in-out;
+}
+
+@keyframes moveRandomly {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(10px, -10px); }
+    50% { transform: translate(-10px, 15px); }
+    75% { transform: translate(15px, 5px); }
+    100% { transform: translate(-15px, -5px); }
+}
