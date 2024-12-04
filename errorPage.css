@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-out transition */
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.error-message {
+    font-size: 2em;
+    font-weight: bold;
+    color: #e74c3c;
+    line-height: 1.2; /* Set line-height for consistent spacing */
+}
+
+.info-message {
+    font-size: 1.2em;
+    margin: 10px 0;
+    line-height: 1.5; /* Maintain consistent line spacing */
+}
+
+.link-message a {
+    font-size: 1.5em;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+    line-height: 1.2; /* Maintain consistent line spacing */
+}
+
+.link-message a:hover {
+    color: rgb(0, 72, 255); /* Change color on hover */
+}
+
+.question-mark {
+    font-size: 20em;
+    font-weight: bold;
+    margin-top: 0px;
+    color: #000000;
+}
+
+.cursor-trail {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: moveRandomly 5s infinite ease-in-out;
+    z-index: 9999;
+}
+
+@keyframes moveRandomly {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, -10px);
+    }
+}
+
+.random-question-mark {
+    position: absolute;
+    font-size: 40px; /* Size of the question mark */
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 1;
+}

@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background-color: white;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    position: relative;
+    font-family: Arial, sans-serif; /* Set font family to Arial */
+}
+
+.typewriter {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 2vh; /* Large text size */
+    color: black;
+    z-index: 2; /* Ensure text appears above the grid */
+}
+
+#typewriter-header {
+    top: -0%; /* Position the header typewriter text above the grid */
+}
+
+#typewriter-top {
+    bottom: 9%; /* Position the top typewriter text below the grid */
+}
+
+#typewriter-bottom {
+    bottom: 6%; /* Position the bottom typewriter text below the top text */
+}
+
+.typewriter-header {
+    position: absolute;
+    top: 5%; /* Position near the top of the page */
+    width: 100%;
+    text-align: center;
+    font-size: 20vh; /* Large text size */
+    font-weight: bold; /* Bold text */
+    font-family: Arial, sans-serif; /* Set font to Arial */
+    color: black;
+    z-index: 3; /* Ensure it appears above other content */
+    letter-spacing: -0.04em; /* Tighter tracking */
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 40vw;
+    height: 40vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -57%); /* Shift the grid up a bit */
+    z-index: 1;
+}
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.grid-item:hover {
+    filter: saturate(100);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        background-color: white;
+    }
+    to {
+        opacity: 1;
+        background-color: white;
+    }
+}
+
+.question-marks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.question-mark {
+    font-size: 10vw;
+    color: rgba(0, 0, 0, 0.1);
+    animation: fadeRandom 5s infinite;
+}
+
+@keyframes fadeRandom {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.cursor-trail {
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: moveRandomly 5s infinite ease-in-out;
+    z-index: 9999;
+}
+
+@keyframes moveRandomly {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, -10px);
+    }
+}
