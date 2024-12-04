@@ -1,0 +1,107 @@
+/* Fade-in effect for the body */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-size: 2.5vh;
+    opacity: 0; /* Start with no visibility */
+    transition: opacity 0.5s ease-in; /* Fade-in transition */
+}
+
+/* Title typing effect */
+.title {
+    margin-top: -20px;
+    position: fixed;
+    text-align: center;
+    font-size: 25vh; /* Large text size */
+    font-weight: bold; /* Bold text */
+    font-family: Arial, sans-serif; /* Set font to Arial */
+    color: rgb(0, 0, 0);
+    z-index: 3; /* Ensure it appears above other content */
+    letter-spacing: -0.04em; /* Tighter tracking */
+    overflow: hidden; /* Ensure overflow is hidden */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Description styling */
+.description {
+    text-align: left;            /* Aligns text to the left */
+    position: absolute;          /* Allows for absolute positioning */
+    top: 39%;                   /* Moves the element to the middle of the screen */
+    left: 10%;                   /* Start from the left side */
+    max-width: 40vw;           /* Sets a maximum width for the text */
+    margin: 0;                   /* Remove margin to start typing from the left */
+    padding: 0 20px;            /* Adds padding to the left and right */
+}
+
+/* Keyframe for typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Links container */
+.links-container {
+    display: flex;
+    justify-content: center; /* Center the links horizontally */
+    position: fixed;
+    bottom: 28px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0; /* Add some padding for space around the links */
+    z-index: 1000; /* Ensure the links are always above the content */
+}
+
+.link {
+    margin: 0 180px; /* Increase space between links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    color: rgb(0, 0, 0); /* Default link color */
+    font-size: 0.8em; /* Adjust font size as needed */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.link:hover {
+    color: rgb(0, 72, 255); /* Change color on hover */
+}
+
+/* Image container styles */
+.image-container {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    right: 10%; /* Adjust as needed for spacing */
+    transform: translateY(-50%); /* Center the container vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Arrange images in a column */
+}
+
+.image-container img {
+    max-width: 55vh; /* Adjust the size of images */
+    transition: opacity 0.5s ease; /* Smooth fade transition */
+}
+
+.cursor-trail {
+    position: absolute;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: moveRandomly 5s infinite ease-in-out;
+    z-index: 9999;
+}
+
+@keyframes moveRandomly {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, -10px);
+    }
+}
+
+

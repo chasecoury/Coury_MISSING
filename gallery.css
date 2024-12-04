@@ -1,0 +1,122 @@
+/* Fade-in effect for the body */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-size: 2.5vh;
+    opacity: 0; /* Start with no visibility */
+    transition: opacity 0.5s ease-in; /* Fade-in transition */
+}
+
+/* Title typing effect */
+.title {
+    margin-top: -20px;
+    position: fixed;
+    text-align: center;
+    font-size: 25vh; /* Large text size */
+    font-weight: bold; /* Bold text */
+    font-family: Arial, sans-serif; /* Set font to Arial */
+    color: rgb(255, 255, 255);
+    z-index: 3; /* Ensure it appears above other content */
+    letter-spacing: -0.04em; /* Tighter tracking */
+    overflow: hidden; /* Ensure overflow is hidden */
+    white-space: nowrap; /* Prevent text from wrapping */
+
+}
+
+/* Keyframe for typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+    justify-items: center;
+}
+
+.gallery {
+    width: 100%; /* Ensures the image container is responsive */
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 3 / 4; /* Enforces 3x4 aspect ratio */
+    object-fit: cover; /* Ensures the image fills the area without distortion */
+}
+
+@media (max-width: 800px) {
+    .gallery {
+        max-width: 350px; /* Adjust max-width for smaller screens */
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* One image per row on very small screens */
+    }
+}
+
+.links-container {
+    display: flex;
+    justify-content: center; /* Center the links horizontally */
+    position: fixed;
+    bottom: 28px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0; /* Add some padding for space around the links */
+    z-index: 1000; /* Ensure the links are always above the content */
+}
+
+.link {
+    margin: 0 180px; /* Increase space between links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    color: rgb(255, 255, 255); /* Default link color */
+    font-size: 0.8em; /* Adjust font size as needed */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.link:hover {
+    color: rgb(0, 72, 255); /* Change color on hover */
+}
+
+.title {
+    margin-top: -20px;
+    position: fixed;
+    text-align: center;
+    font-size: 25vh; /* Large text size */
+    font-weight: bold; /* Bold text */
+    font-family: Arial, sans-serif; /* Set font to Arial */
+    color: rgb(255, 255, 255);
+    z-index: 3; /* Ensure it appears above other content */
+    letter-spacing: -0.04em; /* Tighter tracking */
+    z-index: 1000; /* Ensure the links are always above the content */
+}
+
+.cursor-trail {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: moveRandomly 5s infinite ease-in-out;
+    z-index: 9999;
+}
+
+@keyframes moveRandomly {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, -10px);
+    }
+}
